@@ -16,3 +16,4 @@ hs_err_pid*
 /fesa-platform-runtime/.settings
 /fesa-platform-runtime-app/.settings
 /fesa-platform-runtime-v1/.settings
+/logs
