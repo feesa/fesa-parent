@@ -5,14 +5,14 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.fs.app.recsys.etl.model.ItemModel;
-import com.fs.app.recsys.etl.model.UserModel;
+import com.fs.app.recsys.etl.model.PropertyModel;
+import com.fs.app.recsys.etl.model.RelationModel;
 
 public abstract class IDataDriver {
 	
-	public String hdfsUrl="hdfs://archive.cloudera.com/user/rectest";//hdfs数据存储目录
-	public List<UserModel> userdatas=new ArrayList<UserModel>();//用户关系数据
-	public List<ItemModel> itemdatas=new ArrayList<ItemModel>();//物品数据
+	public String hdfsUrl="hdfs://archive.cloudera.com/user/rectest/";//hdfs数据存储目录
+	public List<RelationModel> userdatas=new ArrayList<RelationModel>();//用户关系数据
+	public List<PropertyModel> itemdatas=new ArrayList<PropertyModel>();//物品数据
 	public List<Map<String,String>> originaldata=new ArrayList<Map<String,String>>();//原始数据
 	public Map<String,String> metamap=new HashMap<String,String>();//字段映射
 	/**

@@ -11,7 +11,7 @@ import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.fs.FSDataOutputStream;
 import com.fs.app.recsys.etl.data.plugin.DataSourceProperties;
 import com.fs.app.recsys.etl.data.plugin.IDataDriver;
-import com.fs.app.recsys.etl.model.UserModel;
+import com.fs.app.recsys.etl.model.RelationModel;
 import com.fs.app.recsys.etl.utils.DBHelper;
 
 public class MySQLDriver extends IDataDriver {
@@ -36,17 +36,17 @@ public class MySQLDriver extends IDataDriver {
 			String _type = obj.toString();
 			if (_type.equals("1")) {
 				for (Map<String, String> ele : originaldata) {
-					UserModel usermodel = new UserModel();
+					RelationModel usermodel = new RelationModel();
 					usermodel.setId(Calendar.getInstance().getTimeInMillis());
 					for (Entry<String, String> entry : ele.entrySet()) {
 						String _name = metamap.get(entry.getKey());
 						if (_name != null) {
-							if (_name.equals("userid")) {
-								usermodel.setUserid(entry.getValue());
-							} else if (_name.equals("action")) {
-								usermodel.setAction(entry.getValue());
-							} else if (_name.equals("target")) {
-								usermodel.setTarget(entry.getValue());
+							if (_name.equals("sponsorid")) {
+								usermodel.setSponsorid(entry.getValue());
+							} else if (_name.equals("relation")) {
+								usermodel.setRelation(entry.getValue());
+							} else if (_name.equals("itemid")) {
+								usermodel.setItemid(entry.getValue());
 							} else if (_name.equals("timeline")) {
 								usermodel.setTimeline(entry.getValue());
 							}
@@ -67,12 +67,13 @@ public class MySQLDriver extends IDataDriver {
 		try {
 			Configuration conf = new Configuration();
 			FileSystem fs = FileSystem.get(URI.create(hdfsUrl), conf);
-			FSDataOutputStream hdfsOutStream = fs.create(new Path(hdfsUrl));
+//			fs.delete(new Path(hdfsUrl));
+			FSDataOutputStream hdfsOutStream = fs.create(new Path(hdfsUrl+"001"));
 			Object obj = metamap.get("modeltype");
 			if (obj != null) {
 				String _type = obj.toString();
 				if (_type.equals("1")) {
-					for (UserModel model : userdatas) {
+					for (RelationModel model : userdatas) {
 						hdfsOutStream.writeBytes(model.toString());
 					}
 				}else{

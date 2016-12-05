@@ -19,14 +19,13 @@ public class EtlApiHandlers extends BaseHandlers{
 	@ResponseBody
 	@RequestMapping(value = "/getDataFromDB", method = RequestMethod.GET)
 	public void getDataFromDB(HttpServletRequest request,HttpServletResponse response) {
-		//System.setProperty("hadoop.home.dir", "E:\\hadoop-2.7.2");
 		//业务数据
-		String sql="select guess_id,user_id,period_id,number_id,guess_date from portal_wallet_guess order by guess_date desc";
+		String sql="select guess_id,user_id,period_id,number_id,guess_date from portal_wallet_guess order by guess_date desc limit 10";
 		Map<String,String> metas=new HashMap<String, String>();
 		metas.put("modeltype", "1");//1:user,2:item
-		metas.put("user_id","userid");
-		metas.put("period_id","action");
-		metas.put("number_id","target");
+		metas.put("user_id","sponsorid");
+		metas.put("period_id","relation");
+		metas.put("number_id","itemid");
 		metas.put("guess_date","timeline");
 		//数据接入
 		IDataDriver dataDriver=new MySQLDriver();

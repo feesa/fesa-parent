@@ -23,6 +23,6 @@
     <module>fesa-app-crawler</module>
     <module>fesa-app-analysis</module>
     <module>fesa-recsys-etl</module>
-    
+    <module>fesa-recsys-arithmetic</module>
   </modules>
 </project>

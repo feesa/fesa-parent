@@ -2,7 +2,7 @@ package com.fs.app.recsys.etl.model;
 
 import java.io.Serializable;
 
-public class ItemModel implements Serializable{
+public class PropertyModel implements Serializable{
 	/**
 	 * 
 	 */
