@@ -1,39 +1,10 @@
-*.class
+# eclipse ignore
+.settings
+.classpath
+.project
 
-# Mobile Tools for Java (J2ME)
-.mtj.tmp/
+# maven ignore
+target/
 
-# Package Files #
-*.jar
-*.war
-*.ear
+# temp ignore
 
-# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
-hs_err_pid*
-/.settings
-/fesa-commons-app/.settings
-/fesa-platform-commons/.settings
-/fesa-platform-runtime/.settings
-/fesa-platform-runtime-app/.settings
-/fesa-platform-runtime-v1/.settings
-/logs
-/fesa-app-analysis/.classpath
-/fesa-app-analysis/.project
-/fesa-app-crawler/.classpath
-/fesa-app-crawler/.project
-/fesa-app-portal/.classpath
-/fesa-app-portal/.project
-/fesa-commons-app/.classpath
-/fesa-commons-app/.project
-/fesa-platform-commons/.project
-/fesa-platform-commons/.classpath
-/fesa-platform-runtime/.classpath
-/fesa-platform-runtime/.project
-/fesa-platform-runtime-app/.classpath
-/fesa-platform-runtime-app/.project
-/fesa-platform-runtime-v1/.classpath
-/fesa-platform-runtime-v1/.project
-/fesa-recsys-etl/.classpath
-/fesa-recsys-etl/.project
-/.classpath
-/.project
